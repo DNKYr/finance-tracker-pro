@@ -53,7 +53,11 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-neutral flex flex-col">
-      <Navbar openModal={openModal} currentView={currentView} setCurrentView={setCurrentView} />
+      <Navbar 
+        openModal={openModal} 
+        currentView={currentView} 
+        setCurrentView={setCurrentView}
+      />
       <main className="flex-grow container mx-auto p-4 sm:p-6 lg:p-8">
         {currentView === 'dashboard' ? (
           <Dashboard transactions={transactions} onDeleteTransaction={handleDeleteTransaction} />
