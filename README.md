@@ -103,7 +103,3 @@ This application is designed to run in an environment where `index.html` can dir
 
 *   Transaction data is stored in the browser's localStorage, allowing you to access your data even when offline (once loaded).
 *   The AI-powered PDF import feature requires an internet connection to communicate with the Gemini API.
-
----
-
-This README provides a basic overview. Feel free to expand it with more details as the project grows!
