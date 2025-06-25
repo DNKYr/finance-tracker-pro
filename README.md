@@ -1,3 +1,4 @@
+
 # Finance Tracker Pro
 
 Finance Tracker Pro is a web application built with React, TypeScript, and Tailwind CSS designed to help users track their personal finances effectively. It allows for manual transaction entry, bulk import of transactions via CSV or AI-powered PDF parsing, and provides insightful summaries and visualizations of financial data.
@@ -12,9 +13,11 @@ Finance Tracker Pro is a web application built with React, TypeScript, and Tailw
     *   Overall financial summary (total income, total expenses, net balance).
     *   Pie chart visualizing expenses by category.
     *   List of recent transactions.
+*   **All Transactions View**: Displays a comprehensive list of all recorded transactions.
 *   **Monthly View**:
     *   Transactions grouped by month and year.
     *   Dedicated financial summary (income, expenses, net) for each month.
+    *   Ability to export transactions for a specific month to Excel.
 *   **Categorization**: Organize transactions using default or custom categories.
 *   **Data Persistence**: Transactions are saved locally in the browser's localStorage.
 *   **Responsive Design**: User-friendly interface accessible on various devices.
@@ -25,6 +28,7 @@ Finance Tracker Pro is a web application built with React, TypeScript, and Tailw
 *   **Frontend**: React 19, TypeScript
 *   **Styling**: Tailwind CSS
 *   **Charting**: Recharts
+*   **Excel Export**: `xlsx`
 *   **PDF Processing (Client-side text extraction)**: `pdfjs-dist`
 *   **AI for PDF Parsing**: Google Gemini API (`@google/genai`)
 *   **Build/Module System**: ES Modules, Vite (implied by typical React setup, though running in a specialized environment)
@@ -42,7 +46,7 @@ To enable the AI-powered PDF import feature, you need to configure your Google G
 
 *   `API_KEY`: Your Google Gemini API Key.
 
-**IMPORTANT**: This application is designed to retrieve the `API_KEY` from `process.env.API_KEY`. **Do not hardcode your API key into the source code.** Ensure this environment variable is properly set in the deployment or local execution environment where the application's backend logic (or server-side rendering, if applicable, though here it's client-side calls proxied or directly made based on environment setup) would typically access it. For client-side focused examples running in specific sandboxed environments, this variable needs to be pre-configured in that environment. The application **will not** ask you to enter it.
+**IMPORTANT**: This application is designed to retrieve the `API_KEY` from `process.env.API_KEY`. **Do not hardcode your API key into the source code.** Ensure this environment variable is properly set in the deployment or local execution environment where the application's backend logic (or server-side rendering, if applicable, though here it's client-side calls proxied or directly made based on environment setup) would typically access it. The application **will not** ask you to enter it.
 
 ### Running the Application
 
@@ -88,10 +92,11 @@ This application is designed to run in an environment where `index.html` can dir
 
 3.  **Viewing Data**:
     *   **Dashboard View**: The default view, showing an overview summary, expense chart, and recent transactions.
-    *   **Monthly View**: Click the "Monthly" button in the navbar to see transactions grouped by month, each with its own summary.
+    *   **All Transactions View**: Click the "All Transactions" button in the navbar to see a comprehensive list of all your transactions.
+    *   **Monthly View**: Click the "Monthly" button in the navbar to see transactions grouped by month, each with its own summary. You can also export transactions for a specific month from this view.
 
 4.  **Deleting Transactions**:
-    *   In either the Dashboard's "Recent Transactions" list or any "Transactions for this month" list in the Monthly View, click the X icon next to a transaction to delete it.
+    *   In the Dashboard's "Recent Transactions" list, the "All Transactions" list, or any "Transactions for this month" list in the Monthly View, click the X icon next to a transaction to delete it.
 
 ## Notes on AI (Gemini API)
 
@@ -103,3 +108,7 @@ This application is designed to run in an environment where `index.html` can dir
 
 *   Transaction data is stored in the browser's localStorage, allowing you to access your data even when offline (once loaded).
 *   The AI-powered PDF import feature requires an internet connection to communicate with the Gemini API.
+
+---
+
+This README provides a basic overview. Feel free to expand it with more details as the project grows!

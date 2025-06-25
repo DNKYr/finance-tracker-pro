@@ -5,6 +5,8 @@ import DocumentTextIcon from './icons/DocumentTextIcon';
 import ChartPieIcon from './icons/ChartPieIcon';
 import CalendarDaysIcon from './icons/CalendarDaysIcon';
 import LayoutDashboardIcon from './icons/LayoutDashboardIcon';
+import ListBulletIcon from './icons/ListBulletIcon'; // Import new icon
+// DownloadIcon import removed as it's no longer used in Navbar
 import { APP_TITLE } from '../constants';
 import { ViewMode } from '../App';
 
@@ -12,14 +14,15 @@ interface NavbarProps {
   openModal: (mode: 'add' | 'import') => void;
   currentView: ViewMode;
   setCurrentView: (view: ViewMode) => void;
+  // onExportToExcel prop removed
 }
 
 const Navbar: React.FC<NavbarProps> = ({ openModal, currentView, setCurrentView }) => {
   const commonViewButtonClass = "flex items-center text-white font-semibold py-2 px-3 rounded-lg shadow-sm transition duration-150 ease-in-out text-sm";
-  const activeViewButtonClass = "bg-accent hover:bg-yellow-400"; // Accent for active view
-  const inactiveViewButtonClass = "bg-primary/60 hover:bg-primary/80"; // Slightly darker/interactive primary for inactive
+  const activeViewButtonClass = "bg-accent hover:bg-yellow-400"; 
+  const inactiveViewButtonClass = "bg-primary/60 hover:bg-primary/80"; 
 
-  const commonActionButtonClass = "flex items-center text-white font-semibold py-2 px-4 rounded-lg shadow-sm transition duration-150 ease-in-out";
+  const commonActionButtonClass = "flex items-center text-white font-semibold py-2 px-4 rounded-lg shadow-sm transition duration-150 ease-in-out text-sm";
 
 
   return (
@@ -38,6 +41,15 @@ const Navbar: React.FC<NavbarProps> = ({ openModal, currentView, setCurrentView 
               >
                 <LayoutDashboardIcon className="h-5 w-5 mr-1.5" />
                 Dashboard
+              </button>
+              <button
+                onClick={() => setCurrentView('all')}
+                className={`${commonViewButtonClass} ${currentView === 'all' ? activeViewButtonClass : inactiveViewButtonClass}`}
+                aria-pressed={currentView === 'all'}
+                aria-label="Switch to All Transactions View"
+              >
+                <ListBulletIcon className="h-5 w-5 mr-1.5" />
+                All Transactions
               </button>
               <button
                 onClick={() => setCurrentView('monthly')}
@@ -67,6 +79,7 @@ const Navbar: React.FC<NavbarProps> = ({ openModal, currentView, setCurrentView 
               <DocumentTextIcon className="h-5 w-5 mr-2" />
               Import Transactions
             </button>
+            {/* Export Excel button removed from here */}
           </div>
         </div>
       </div>
