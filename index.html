@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Tracker Pro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: 'rgb(var(--color-primary) / <alpha-value>)',
+            secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+            accent: 'rgb(var(--color-accent) / <alpha-value>)',
+            neutral: 'rgb(var(--color-neutral) / <alpha-value>)',
+            base: 'rgb(var(--color-base) / <alpha-value>)',
+            info: 'rgb(var(--color-info) / <alpha-value>)',
+            success: 'rgb(var(--color-success) / <alpha-value>)',
+            warning: 'rgb(var(--color-warning) / <alpha-value>)',
+            error: 'rgb(var(--color-error) / <alpha-value>)',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --color-primary: 59 130 246; /* blue-500 */
+      --color-secondary: 107 114 128; /* gray-500 */
+      --color-accent: 234 179 8; /* yellow-500 */
+      --color-neutral: 243 244 246; /* gray-100 */
+      --color-base: 255 255 255; /* white */
+      --color-info: 59 130 246; /* blue-500 */
+      --color-success: 34 197 94; /* green-500 */
+      --color-warning: 245 158 11; /* amber-500 */
+      --color-error: 239 68 68; /* red-500 */
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "recharts": "https://esm.sh/recharts@^3.0.0",
+    "pdfjs-dist": "https://esm.sh/pdfjs-dist@4.4.168",
+    "@google/genai": "https://esm.sh/@google/genai"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-neutral">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

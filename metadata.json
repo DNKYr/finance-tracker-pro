@@ -1,0 +1,6 @@
+{
+  "name": "Finance Tracker Pro",
+  "description": "A React and Tailwind CSS application to track personal finances. Users can manually input transactions or import multiple transactions in a specified format. The app provides summaries and visual charts of financial data.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
