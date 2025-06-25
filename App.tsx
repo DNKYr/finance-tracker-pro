@@ -5,10 +5,11 @@ import { loadTransactions, saveTransactions } from './services/storageService';
 import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
 import MonthlyView from './components/MonthlyView';
+import AllTransactionsView from './components/AllTransactionsView'; // Import the new view
 import TransactionModal from './components/TransactionModal';
 import { APP_TITLE } from './constants';
 
-export type ViewMode = 'dashboard' | 'monthly';
+export type ViewMode = 'dashboard' | 'monthly' | 'all'; // Add 'all' to ViewMode
 
 const App: React.FC = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -51,6 +52,19 @@ const App: React.FC = () => {
     setIsModalOpen(true);
   };
 
+  const renderContent = () => {
+    switch (currentView) {
+      case 'dashboard':
+        return <Dashboard transactions={transactions} onDeleteTransaction={handleDeleteTransaction} />;
+      case 'monthly':
+        return <MonthlyView transactions={transactions} onDeleteTransaction={handleDeleteTransaction} />;
+      case 'all':
+        return <AllTransactionsView transactions={transactions} onDeleteTransaction={handleDeleteTransaction} />;
+      default:
+        return <Dashboard transactions={transactions} onDeleteTransaction={handleDeleteTransaction} />;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-neutral flex flex-col">
       <Navbar 
@@ -59,11 +73,7 @@ const App: React.FC = () => {
         setCurrentView={setCurrentView}
       />
       <main className="flex-grow container mx-auto p-4 sm:p-6 lg:p-8">
-        {currentView === 'dashboard' ? (
-          <Dashboard transactions={transactions} onDeleteTransaction={handleDeleteTransaction} />
-        ) : (
-          <MonthlyView transactions={transactions} onDeleteTransaction={handleDeleteTransaction} />
-        )}
+        {renderContent()}
       </main>
       {isModalOpen && (
         <TransactionModal
